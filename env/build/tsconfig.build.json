@@ -1,0 +1,9 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../ts2jsbuild",
+    "baseUrl": "./",
+    "module": "commonjs",
+    "target": "es5"
+  }
+}

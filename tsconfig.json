@@ -1,0 +1,41 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2016",
+      "dom"
+    ],
+    "outDir": "ts2js",
+    "target": "es5",
+    "module": "amd",
+    "declaration": true,
+    "sourceMap": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictNullChecks":true,
+    "baseUrl": "src",
+    "paths": {
+      "searcher": [ "scripts/haidenmobile/app/search/search-app.ts" ]
+      // ,
+      // "appCmn": [ "scripts/haidenmobile/common/app-common.ts" ]
+    },
+    "noImplicitThis":false
+  },
+  // コンパイル対象のファイル
+  "include": [
+    "src/**/*.ts"
+  ],
+  //   コンパイル対象外のファイル
+  "exclude": [
+    "node_modules",
+    "platforms",
+    "plugins",
+    "webmap",
+    "src/system"
+  ]
+}

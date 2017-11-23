@@ -1,0 +1,75 @@
+{
+  "name": "asyncawait_client",
+  "version": "1.0",
+  "license": "nom",
+  "scripts": {
+    "dev.desc.start": "================================== develop (webpack dev server)=====================================",
+    "cmn.init": "mkdir -p ./www && yarn install && cordova platform add android@5.2.2 && cordova plugin add cordova-plugin-admobpro && cordova plugin add cordova-plugin-splashscreen",
+    "dev.del": "rm -rf  ./www/* && rm -rf ./ts2jsdev/* ",
+    "dev.tsc": "yarn run dev.tsc_base",
+    "dev.tsc_simple": "tsc",
+    "dev.tsc_base": "tsc  env/dev/webpack.dev.config.ts && tsc -p env/dev/tsconfig.dev.json ",
+    "dev.webpack": "webpack-dev-server --config ./env/dev/webpack.dev.config.js",
+    "dev.all": "yarn run dev.del && yarn run dev.tsc && yarn run dev.webpack",
+    "dev.11": "yarn run dev.del  && yarn run dev.tsc",
+    "dev.desc.end": "=======================================================================================================",
+    "bld.desc.start": "================================== build (webpack release)=====================================",
+    "bld.del": "rm -rf  ./www/* && rm -rf ./ts2jsbuild/* ",
+    "bld.tsc": "yarn run bld.tsc_base",
+    "bld.tsc_simple": "tsc",
+    "bld.tsc_base": "tsc ./env/build/webpack.build.config.ts   && tsc -p ./env/build/tsconfig.build.json",
+    "bld.webpack": "webpack --config ./env/build/webpack.build.config.js",
+    "bld.all": "yarn run bld.del &&  yarn run bld.tsc  &&  yarn run bld.webpack",
+    "bld.11": "yarn run bld.del  && yarn run bld.tsc ",
+    "bld.cordova": "yarn cld.all",
+    "bld.desc.end": "=======================================================================================================",
+    "cld.desc.start": "================================== corodva ===================================== ",
+    "crdv.init": "cordova platform add android@5.2.2 && cordova plugin add cordova-plugin-admobpro && cordova plugin add cordova-plugin-splashscreen",
+    "crdv.run": "yarn run bld.all && cordova run android",
+    "crdv.bld": "yarn  run bld.all && cordova build android",
+    "crdv.release": "yarn run bld.all &&  bash -c ./install.sh",
+    "cld.desc.end": "======================================================================================================="
+  },
+  "devDependencies": {
+    "@angular/cli": "^1.3.1",
+    "@types/jquery": "^3.2.10",
+    "@types/node": "^8.0.17",
+    "@types/webpack": "^3.0.5",
+    "awesome-typescript-loader": "^3.2.2",
+    "bootstrap": "^3.3.7",
+    "bootstrap-loader": "^2.1.0",
+    "bootstrap-webpack": "^0.0.6",
+    "createjs-module": "^0.8.2-beta",
+    "css-loader": "^0.28.4",
+    "file-loader": "^0.11.2",
+    "html-loader": "^0.5.0",
+    "html-webpack-plugin": "^2.30.1",
+    "imports-loader": "^0.7.1",
+    "jquery": "^3.2.1",
+    "path": "^0.12.7",
+    "resolve-url-loader": "^2.1.0",
+    "source-map-loader": "^0.2.1",
+    "style-loader": "^0.18.2",
+    "ts-node": "^3.3.0",
+    "typescript": "2.3.1",
+    "underscore": "^1.8.3",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.4.1",
+    "webpack-dev-server": "^2.6.1"
+  },
+  "dependencies": {
+    "cordova-android": "^5.2.2",
+    "cordova-plugin-admobpro": "^2.29.21",
+    "cordova-plugin-extension": "^1.5.1",
+    "cordova-plugin-whitelist": "^1.3.2"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-admobpro": {},
+      "cordova-plugin-whitelist": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  }
+}

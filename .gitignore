@@ -1,0 +1,11 @@
+node_modules
+
+.vscode/**/*
+
+
+!ts2jsbuild/.gitkeep
+ts2jsbuild
+
+!ts2jsdev/.gitkeep
+ts2jsdev
+

@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>同期.非同期比較してみた</title>
+    <!--<base href="/">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="vendor.js"></script>
+    <script src="app.js"></script>
+    <style>
+        @font-face {
+            font-family: 'xyz';
+            font-style: normal;
+            font-weight: 400;
+            src: url('./font/00333Regular.ttf') format('truetype')
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-fixed-top panel-header">
+        <div class="container gloal-frex-row">
+            <p class="navbar-text">
+                非同期処理を比較してみた。（ついでに同期も）
+            </p>
+        </div>
+    </nav>
+    <div id="animate" style="background-color: blue;width: 10px;height:100px"></div>
+    <div id="message" style="font-size: 20px; padding-left: 300px ;padding-top:100px; height:300px border=1px"></div>
+    
+    <div class="navbar navbar-fixed-bottom panel-action">
+        <div class="row gloal-frex-row gloal-frex-row-margin0">
+            <div class="col-xs-2 global-col" style="font-size: 20px;" id="sync">同期処理</div>
+            <div class="col-xs-2 global-col" style="font-size: 20px;" id="promise">Promise</div>
+            <div class="col-xs-2 global-col" style="font-size: 20px;" id="callback">コールバック</div>
+            <div class="col-xs-2 global-col" style="font-size: 20px;" id="async">async/await実行</div>
+            <div class="col-xs-2 global-col" style="font-size: 20px;" id="start">描画スタート</div>
+            <div class="col-xs-2 global-col" style="font-size: 20px;" id="stop">描画ストップ</div>
+        </div>
+    </div>
+</body>
+
+</html>

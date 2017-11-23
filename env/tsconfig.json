@@ -1,0 +1,32 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "typeRoots": [
+      "../node_modules/@types"
+      ,
+      "../plugins/cordova-plugin-admobpro/typescript"
+    ],
+    "lib": [
+      "es2016",
+      "dom"
+    ],
+    "target": "es5",
+    "module": "amd",
+    "declaration": true,
+    "sourceMap": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictNullChecks":true,
+    "noImplicitThis":false
+  },
+  // コンパイル対象のファイル
+  "include": [
+    "../src/**/*.ts"
+  ],
+  //   コンパイル対象外のファイル
+  "exclude": [
+    "../node_modules"
+  ]
+}

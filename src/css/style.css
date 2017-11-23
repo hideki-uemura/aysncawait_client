@@ -1,0 +1,260 @@
+/* ============================================ */
+/* ============== font ================ */
+/* ============================================ */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url('../font/googleicons.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: '00333Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../font/00333Regular.ttf') format('truetype')
+}
+
+
+@font-face {
+    font-family: '03SmartFontUI';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../font/03SmartFontUI.ttf') format('truetype')
+}
+
+i.material-icons.menu {
+    color: white;
+    font-size: 28px;
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================ */
+/* ============== ボディ部分 ================ */
+/* ============================================ */
+body {
+    -webkit-touch-callout: none;
+    -webkit-text-size-adjust: none;
+    -webkit-user-select: none;
+    background-attachment: fixed;
+    font-family: "Miltonian Tattoo", BioRhyme, "Noto Sans JP", "游ゴシック Medium", "游ゴシック体", "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 80px 0 80px 0;
+    width: 100%;
+    background-color: "white"
+    
+}
+
+/* ============================================ */
+/* ============== 共通部分 ================ */
+/* ============================================ */
+.gloal-frex-row {
+    display: flex;
+    height: 100%;
+}
+.gloal-frex-row-margin0 {
+    margin-right:0px;
+    margin-left:0px
+}
+    
+.navbar-text {
+    font-size: 220%;
+    font-family: "00333Regular";
+    margin-top: 15px;
+    color: white;
+}
+
+.global-col {
+    padding-left: 0px;
+    padding-right: 0px;
+    vertical-align: middle;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+/* ============================================ */
+/* ============== ヘッダー部分 ================ */
+/* ============================================ */
+.panel-header {
+    height: 80px;
+    background-color: red;
+    /*box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.4) ;*/
+    vertical-align: middle;
+    top: 0;
+    left: 0;
+}
+
+/* ============================================ */
+/* ============ コンテンツ部分 ================ */
+/* ============================================ */
+.panel-main {
+    position: absolute;
+    height:0px;
+    background-color: white;
+    width: 100%;
+    
+}
+.panel-sub-main {
+    position: relative;
+    height:0px;
+    background-color: white;
+    width: 100%;
+    
+}
+
+.panel-main-canvas {
+    position: absolute;
+    background-color: transparent;
+    width: 100%;
+    /*height: 75%;*/
+    vertical-align: bottom;
+}
+
+.panel-prgoress {
+    width: 100%;
+    background-color: #6B6B22;
+    position: relative
+}
+
+/* ============================================ */
+/* ============== フッター部分 ================ */
+/* ============================================ */
+.panel-action {
+    width: 100%;
+    height: 80px;
+    background-color: #D57416;
+}
+
+/* ============================================ */
+/* ========== 隠れメニュー部分 ================ */
+/* ============================================ */
+.panel-menu {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1050; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: cornflowerblue;
+    background-color: #FFF;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .3), 3px 3px 5px 0 rgba(0, 0, 0, 0.6);
+    font-weight: normal;
+    font-style: normal;
+    font-size: 120%;
+    font-family: "03SmartFontUI";
+}
+
+.btm30 {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+
+.table {
+    /*table-layout: fixed;*/
+    border: 1px solid #aaa;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+table-size-50{
+    width: 50%;
+}
+tr.width25 td{
+    /*table-layout: fixed;*/
+    width: 40px;
+    text-align: center;
+}
+table.leftpad > tbody > tr > td{
+    /*table-layout: fixed;*/
+    /*margin-left: 20px;*/
+}
+table-size-100{
+    width: 80%;
+}
+
+/* The navigation menu links */
+.panel-menu a {
+    padding: 8px 8px 8px 8px;
+    text-decoration: none;
+    font-size: 110%;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+/* .timerbar {
+    width: 0px ;
+    height: 20px ;
+    background-color: blue ;
+    padding-right: 0px;
+    padding-left: 0px;    
+    
+} */
+.timerbar-row{
+    margin-right: 0px;
+    margin-left:  0px;
+    height: 40px;
+}
+/* When you mouse over the navigation links, change their color */
+.panel-menu a:hover, .offcanvas a:focus {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.panel-menu .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    margin-left: 20px;
+}
+/*.timerBar{*/
+    /*height: 40px;*/
+/*}*/
+@media screen and (max-height: 450px) {
+    .panel-menu {
+        padding-top: 15px;
+    }
+
+    .panel-menu a {
+        font-size: 18px;
+    }
+}
+
+#panel-menu-top {
+    background-color: darkseagreen;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    list-style: none;
+}
+
+
