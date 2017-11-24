@@ -6,7 +6,8 @@
     ],
     "lib": [
       "es2016",
-      "dom"
+      "dom",
+      "es2015.promise"
     ],
     "outDir": "ts2js",
     "target": "es5",
@@ -21,8 +22,6 @@
     "baseUrl": "src",
     "paths": {
       "searcher": [ "scripts/haidenmobile/app/search/search-app.ts" ]
-      // ,
-      // "appCmn": [ "scripts/haidenmobile/common/app-common.ts" ]
     },
     "noImplicitThis":false
   },
@@ -32,10 +31,6 @@
   ],
   //   コンパイル対象外のファイル
   "exclude": [
-    "node_modules",
-    "platforms",
-    "plugins",
-    "webmap",
-    "src/system"
+    "node_modules"
   ]
 }
