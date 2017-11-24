@@ -21,20 +21,20 @@ export default class AsyncPromise {
                     type: 'GET',
                     url: "http://localhost:3000/urls/",
                     async: true
-                }).then((firstResult => {
+                })
+                // ===================================
+                // 結果のJSON文字列をN件のFunction<Promise>配列に変換する。
+                // ===================================
+                .then((firstResult => {
                     let firstResultAry: [FirstResType] = firstResult;
                     // ===================================
-                    //firstResultAryの結果が【N】件なのでループしながら
-                    // map/Reduceして【N】件のPromiseチェーンを作成
-                    // ===================================
-                    let initDef = $.Deferred();
-                    let initProc = initDef.promise();
-                    // ===================================
+                    //firstResultAryの結果が【N】件なので、ループしながら
+                    // map/Reduceして【N】件のPromiseチェーンを作成。
                     //URLの一覧をMap処理でAjaxアクセスのPromiseを含むFunctionに変換
                     // ===================================
-                    firstResultAry
+                    let firstResultAryConvert: Array<Function> = firstResultAry
                         .map((element: FirstResType) => {
-                            return function (str: string) {
+                            let returnValue: Function = function (str: string) {
                                 let def = $.Deferred();
                                 $.ajax(
                                     {
@@ -58,15 +58,24 @@ export default class AsyncPromise {
                                 )
                                 return def.promise()
                             }
+                            return returnValue;
                         })
-                        // ===================================
-                        //reduceにてPromiseを含むFunction配列を
-                        //Promiseチェーンを作成する。
-                        // ===================================
-                        .reduce((preProc: any, curenProc, index: number, ary) => {
-                            return index === 1 ? preProc().then(curenProc) : preProc.then(curenProc)
-                        })
+                    return $.Deferred().resolve(firstResultAryConvert)//下のthneに繋がなくてここでreduceしてもOK
                 }))
+                // ===================================
+                // Function<Promise>配列をreduce処理してPromiseCHainを作って実行
+                // ===================================
+                .then((firstResultAryConvert: Array<Function>) => {
+                    // ===================================
+                    //reduceにてPromiseを含むFunction配列を
+                    //Promiseチェーンを作成する。
+                    // ===================================
+                    firstResultAryConvert.reduce((preProc: any, curenProc, index: number, ary) => {
+                        return index === 1 ? preProc().then(curenProc) : preProc.then(curenProc)
+                    })
+                })
+
+
             } catch (e) {
                 alert("非同期処理なので通信失敗ではこのキャッチは先に終わってしまっているので意味ない")
             }
