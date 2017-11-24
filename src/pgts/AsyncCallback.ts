@@ -44,7 +44,7 @@ export default class AsyncCallback {
                                     // N回アクセスが終了するまで再帰Ajaxアクセス呼び出し
                                     // ===================================
                                     if (nextIdx < requestList.length) {
-                                        ajaxRecursion(nextIdx)
+                                        ajaxRecursion(nextIdx)　　  // *********** ここで再帰呼出し ****************
                                     }
                                 },
                                 error: (res) => {
@@ -55,7 +55,7 @@ export default class AsyncCallback {
                                     $("#message").html($("#message").html() + msg)
                                     let nextIdx = index + 1;
                                     if (nextIdx < requestList.length) {
-                                        ajaxRecursion(nextIdx)
+                                        ajaxRecursion(nextIdx)    // *********** ここで再帰呼出し ****************
                                     }
                                 }
                             })
