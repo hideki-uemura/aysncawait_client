@@ -9,6 +9,7 @@
     "dev.tsc_base": "tsc  env/dev/webpack.dev.config.ts && tsc -p env/dev/tsconfig.dev.json ",
     "dev.webpack": "webpack-dev-server --config ./env/dev/webpack.dev.config.js",
     "dev.all": "yarn run dev.del && yarn run dev.tsc && yarn run dev.webpack",
+    "dev": "yarn run dev.all",
     "bld.del": "rm -rf  ./www/* && rm -rf ./ts2jsbuild/* ",
     "bld.tsc": "yarn run bld.tsc_base",
     "bld.tsc_simple": "tsc",

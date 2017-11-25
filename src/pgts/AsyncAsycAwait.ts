@@ -33,7 +33,7 @@ export default class AsyncAsycAwait extends BeforeMessage {
             // ===================================
             //同期処理のように例外もキャッチ。
             // ===================================
-            $("#message").html($("#message").html() + "・通信に失敗しました<BR>")
+            $("#message").html($("#message").html() + "・通信に失敗しました。{4/4_アクセス}<BR>")
         }
 
     }

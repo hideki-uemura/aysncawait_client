@@ -40,7 +40,7 @@ export default class AsyncPromise extends BeforeMessage {
             // ===================================
             //同期処理の為例外もキャッチ。
             // ===================================
-            $("#message").html($("#message").html() + "・通信に失敗しました<BR>")
+            $("#message").html($("#message").html() + "・通信に失敗しました。{4/4_アクセス}<BR>")
         }
     }
 

@@ -28,23 +28,18 @@ export default class AsyncPromise extends BeforeMessage {
                     .map((element: FirstResType) => {
                         let returnValue: Function = function () {
                             let def = $.Deferred();
-                            $.ajax(
-                                {
-                                    url: `${element.url}?name=${element.name}&wait=${element.wait}`,
-                                    success: function (res) {
-                                        // ===================================
-                                        // 結果を画面に都度表示する
-                                        // ===================================
-                                        $("#message").html($("#message").html() + res.msg + "<BR>")
-                                        def.resolve()
-                                    },
-                                    error: (res) => {
-                                        let msg = "・通信に失敗しました<BR>";
-                                        $("#message").html($("#message").html() + msg)
-                                        def.reject()
-                                    }
-                                }
-                            )
+                            $.ajax({
+                                url: `${element.url}?name=${element.name}&wait=${element.wait}`,
+                                success: (res)=> {
+
+                                    // ===================================
+                                    // 結果を画面に都度表示する
+                                    // ===================================
+                                    $("#message").html($("#message").html() + res.msg + "<BR>")
+                                    def.resolve()
+                                 },
+                                error:((e)=>{def.reject(e)})
+                             })
                             return def.promise()
                         }
                         return returnValue;
@@ -59,12 +54,20 @@ export default class AsyncPromise extends BeforeMessage {
                 //reduceにてPromiseを含むFunction配列を
                 //Promiseチェーンを作成する。
                 // ===================================
-                firstResultAryConvert.reduce((preProc: any, curenProc:Function, index: number) => {
-                    return index === 1 ? preProc().then(curenProc) : preProc.then(curenProc)
+                firstResultAryConvert.reduce((preProc: any, curenProc:Function, index: number,ary:[any]) => {
+                    if(index === 1){
+                        return preProc().then(curenProc)
+                    } else {
+                        if(ary.length - 1 !== index){
+                            return preProc.then(curenProc)
+                        } else {
+                            return preProc.then(curenProc).catch((e:any)=>{$("#message").html($("#message").html() + "・通信に失敗しました。{4/4_アクセス}<BR>")})
+                        }
+                    }
                 })
+            }).catch((e)=>{
+                alert("このcatchでは内側のPromiseチェーンのrejctは単純にはとれない")
             })
-
-
         } catch (e) {
             alert("非同期処理なので通信失敗ではこのキャッチは先に終わってしまっているので意味ない")
         }

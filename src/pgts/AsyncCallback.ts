@@ -16,7 +16,7 @@ export default class AsyncCallback extends BeforeMessage {
             // ===================================
             let urls: JQuery.jqXHR = $.ajax({
                 url: "http://localhost:3000/urls/",
-                success: function (res) {
+                success: function (res) {``
                     let requestList: [FirstResType] = JSON.parse(urls.responseText);
                     // ======================================================================
                     //サクセスコールバックより再帰的に呼び出されるAjaxアクセスFunction
@@ -45,7 +45,7 @@ export default class AsyncCallback extends BeforeMessage {
                                 // ===================================
                                 // 失敗時も成功時と同じように画面描画後再帰
                                 // ===================================
-                                let msg = "・通信に失敗しました<BR>";
+                                let msg = "・通信に失敗しました。{4/4_アクセス}<BR>";
                                 $("#message").html($("#message").html() + msg)
                                 let nextIdx = index + 1;
                                 if (nextIdx < requestList.length) {
