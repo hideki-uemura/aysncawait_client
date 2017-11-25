@@ -9,7 +9,7 @@ declare type SecondResType = { result: string, msg: string }
  * コールバックでの実装
  */
 export default class AsyncCallback extends BeforeMessage {
-    protected  exec() {
+    protected  exec() :void{
         try {
             // ===================================
             //URLアクセスする一覧を取得

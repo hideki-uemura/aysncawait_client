@@ -10,7 +10,7 @@ declare type SecondResType = { result: string, msg: string }
  * RxJS実装
  */
 export default class AsyncRxjs extends BeforeMessage {
-    protected exec() {
+    protected exec() :void{
         try {
             Rx.Observable
                 // ======================================================================

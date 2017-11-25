@@ -9,7 +9,7 @@ declare type SecondResType = { result: string, msg: string }
  * 非同期アクセスPromiseで。
  */
 export default class AsyncPromise extends BeforeMessage {
-    protected exec() {
+    protected exec() :void{
         try {
             // ===================================
             //URLアクセスする一覧を取得

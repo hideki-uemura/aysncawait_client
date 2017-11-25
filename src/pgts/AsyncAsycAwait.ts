@@ -10,7 +10,7 @@ declare type SecondResType = { result: string, msg: string }
  * 
  */
 export default class AsyncAsycAwait extends BeforeMessage {
-    protected async exec(){
+    protected async exec():Promise<void>{
         try {
             // ===================================
             //URLアクセスする一覧を取得
