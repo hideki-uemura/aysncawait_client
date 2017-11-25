@@ -3,6 +3,8 @@ import SyncAccess from "./SyncAccess";
 import AsyncCallback from "./AsyncCallback";
 import AsyncAsycAwait from "./AsyncAsycAwait";
 import AsyncPromise from "./AsyncPromise";
+import AsyncRxjs from "./AsyncRxjs";
+
 import * as Rx from 'rxjs';
 
 export default class MainTs {
@@ -14,10 +16,9 @@ export default class MainTs {
         this.asyncCallback();
         this.asyncPromise();
         this.asyncAsycAwait();
+        this.asyncRxjs();
         this.stopAndStart();
     }
-
-    
     /**
      * 同期処理ボタン押下イベント
      */
@@ -42,7 +43,6 @@ export default class MainTs {
             .fromEvent(<HTMLElement>$("#promise")[0], 'click')
             .subscribe((value: UIEvent) => new AsyncPromise().action(value, this));
     }
-
     /**
      * AsyncAwaitでの記述
      */
@@ -51,14 +51,23 @@ export default class MainTs {
             .fromEvent(<HTMLElement>$("#async")[0], 'click')
             .subscribe((value: UIEvent) => new AsyncAsycAwait().action(value, this));
     }
+   /**
+     * Rxjsでの記述
+     */
+    protected asyncRxjs(): void {
+        Rx.Observable
+            .fromEvent(<HTMLElement>$("#rxjs")[0], 'click')
+            .subscribe((value: UIEvent) => new AsyncRxjs().action(value, this));
+    }
+
 
     public stopAndStart() {
         Rx.Observable
             .fromEvent(<HTMLElement>$("#stop")[0], 'click')
             .subscribe((value: UIEvent) => this.stopAnime());
-        Rx.Observable
-            .fromEvent(<HTMLElement>$("#start")[0], 'click')
-            .subscribe((value: UIEvent) => this.anime());
+        // Rx.Observable
+        //     .fromEvent(<HTMLElement>$("#start")[0], 'click')
+        //     .subscribe((value: UIEvent) => this.anime());
     }
 
     /**

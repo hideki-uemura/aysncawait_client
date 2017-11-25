@@ -17,9 +17,8 @@
         }
     </style>
 </head>
-
 <body>
-    <nav class="navbar navbar-fixed-top panel-header">
+            <nav class="navbar navbar-fixed-top panel-header">
         <div class="container gloal-frex-row">
             <p class="navbar-text">
                 非同期処理を比較してみた。（ついでに同期も）
@@ -28,15 +27,27 @@
     </nav>
     <div id="animate" style="background-color: blue;width: 10px;height:100px"></div>
     <div id="message" style="font-size: 20px; padding-left: 300px ;padding-top:100px; height:300px border=1px"></div>
-    
+
     <div class="navbar navbar-fixed-bottom panel-action">
         <div class="row gloal-frex-row gloal-frex-row-margin0">
-            <div class="col-xs-2 global-col" style="font-size: 20px;" id="sync">同期処理</div>
-            <div class="col-xs-2 global-col" style="font-size: 20px;" id="promise">Promise</div>
-            <div class="col-xs-2 global-col" style="font-size: 20px;" id="callback">コールバック</div>
-            <div class="col-xs-2 global-col" style="font-size: 20px;" id="async">async/await実行</div>
-            <div class="col-xs-2 global-col" style="font-size: 20px;" id="start">描画スタート</div>
-            <div class="col-xs-2 global-col" style="font-size: 20px;" id="stop">描画ストップ</div>
+            <div class="col-xs-2 global-col" class="evt" style="font-size: 20px;" >
+                <button type="button" class="btn btn-primary" id="callback">コールバック</button>
+            </div>
+            <div class="col-xs-2 global-col" class="evt" style="font-size: 20px;">
+                <button type="button" class="btn btn-secondary" id="promise">　Promise　</button>
+            </div>
+            <div class="col-xs-2 global-col" class="evt" style="font-size: 20px;">
+                <button type="button" class="btn btn-success" id="sync">　同期処理　</button>
+            </div>
+            <div class="col-xs-2 global-col" class="evt" style="font-size: 20px;">
+                <button type="button" class="btn btn-info" id="async">async/await</button>
+            </div>
+            <div class="col-xs-2 global-col" class="evt" style="font-size: 20px;">
+                <button type="button" class="btn btn-warning" id="rxjs">ReactiveEx</button>
+            </div>
+            <div class="col-xs-2 global-col" class="evt" style="font-size: 20px;">
+                <button type="button" class="btn btn-danger" id="stop">描画ストップ</button>
+                </div>
         </div>
     </div>
 </body>
