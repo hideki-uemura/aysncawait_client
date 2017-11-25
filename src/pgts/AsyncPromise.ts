@@ -26,25 +26,22 @@ export default class AsyncPromise extends BeforeMessage {
                 // ===================================
                 let firstResultAryConvert: Array<Function> = firstResultAry
                     .map((element: FirstResType) => {
-                        let returnValue: Function = function (str: string) {
+                        let returnValue: Function = function () {
                             let def = $.Deferred();
                             $.ajax(
                                 {
-                                    type: 'GET',
                                     url: `${element.url}?name=${element.name}&wait=${element.wait}`,
-                                    async: true,
                                     success: function (res) {
                                         // ===================================
                                         // 結果を画面に都度表示する
                                         // ===================================
-                                        let message: string = res.msg
-                                        $("#message").html($("#message").html() + message + "<BR>")
-                                        def.resolve(message)
+                                        $("#message").html($("#message").html() + res.msg + "<BR>")
+                                        def.resolve()
                                     },
                                     error: (res) => {
                                         let msg = "・通信に失敗しました<BR>";
                                         $("#message").html($("#message").html() + msg)
-                                        def.reject(msg)
+                                        def.reject()
                                     }
                                 }
                             )
