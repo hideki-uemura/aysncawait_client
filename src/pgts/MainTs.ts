@@ -25,7 +25,7 @@ export default class MainTs {
     protected syncAccess(): void {
         Rx.Observable
             .fromEvent(<HTMLElement>$("#sync")[0], 'click')
-            .subscribe((value: UIEvent) => new SyncAccess().action(value, this));
+            .subscribe((value: UIEvent) => new SyncAccess().action(value, this,"同期処理"));
     }
     /**
      * コールバックでの記述
@@ -33,7 +33,7 @@ export default class MainTs {
     protected asyncCallback(): void {
         Rx.Observable
             .fromEvent(<HTMLElement>$("#callback")[0], 'click')
-            .subscribe((value: UIEvent) => new AsyncCallback().action(value, this));
+            .subscribe((value: UIEvent) => new AsyncCallback().action(value, this,"コールバック"));
     }
     /**
      * Promiseでの記述
@@ -41,7 +41,7 @@ export default class MainTs {
     protected asyncPromise(): void {
         Rx.Observable
             .fromEvent(<HTMLElement>$("#promise")[0], 'click')
-            .subscribe((value: UIEvent) => new AsyncPromise().action(value, this));
+            .subscribe((value: UIEvent) => new AsyncPromise().action(value, this,"Promise"));
     }
     /**
      * AsyncAwaitでの記述
@@ -49,7 +49,7 @@ export default class MainTs {
     protected asyncAsycAwait(): void {
         Rx.Observable
             .fromEvent(<HTMLElement>$("#async")[0], 'click')
-            .subscribe((value: UIEvent) => new AsyncAsycAwait().action(value, this));
+            .subscribe((value: UIEvent) => new AsyncAsycAwait().action(value, this,"async / await"));
     }
    /**
      * Rxjsでの記述
@@ -57,7 +57,7 @@ export default class MainTs {
     protected asyncRxjs(): void {
         Rx.Observable
             .fromEvent(<HTMLElement>$("#rxjs")[0], 'click')
-            .subscribe((value: UIEvent) => new AsyncRxjs().action(value, this));
+            .subscribe((value: UIEvent) => new AsyncRxjs().action(value, this,"ReactiveExtension"));
     }
 
 
